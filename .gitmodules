@@ -1,0 +1,8 @@
+[submodule "app"]
+	path = app
+	url = git@github.com:Akipe/akpweb.git
+	branch = master
+[submodule "docker"]
+	path = docker
+	url = git@github.com:Akipe/akpweb_docker.git
+	branch = master
