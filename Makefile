@@ -5,7 +5,7 @@ COMMAND 				:= bash
 .DEFAULT_GOAL= helpmake bui
 
 dependencies-install-archlinux: 
-	sudo pacman -Sy \
+	sudo pacman --needed -Sy \
 		docker \
 		docker-compose
 	yay -S \
