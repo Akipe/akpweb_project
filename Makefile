@@ -15,7 +15,7 @@ run: system-docker-run docker-run ## Start development environment
 
 stop: docker-stop system-docker-stop ## Stop development environment
 
-init: build
+init: git-submodules-fetch-current build
 	mkdir ./docker/php-cli/cache.composer
 	chmod 777 ./docker/php-cli/cache.composer
 
@@ -67,6 +67,12 @@ gpm-update:
 
 gpm-install:
 	sudo docker exec -it -u 1000:1000 akpweb_php-cli_dev bin/gpm install $(WHAT)
+
+git-submodules-fetch-current:
+	git submodule update --init --recursive
+
+git-submodules-update:
+	git submodule update --recursive --remote
 
 help: ## Show all commands and informations about it
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n\nTargets:\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
