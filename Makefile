@@ -4,6 +4,11 @@ COMMAND 				:= bash
 .PHONY: build run stop clean shell docker-build docker-run docker-stop docker-pull help
 .DEFAULT_GOAL= helpmake bui
 
+dependencies-install-archlinux: 
+	sudo pacman -Sy \
+		docker \
+		docker-compose
+
 build: system-docker-run docker-pull docker-build docker-run ## Prepare and start development environment and install php libraries
 
 run: system-docker-run docker-run ## Start development environment
