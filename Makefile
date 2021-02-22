@@ -8,6 +8,8 @@ dependencies-install-archlinux:
 	sudo pacman -Sy \
 		docker \
 		docker-compose
+	yay -S \
+		gitflow-avh
 
 build: system-docker-run docker-pull docker-build docker-run ## Prepare and start development environment and install php libraries
 
